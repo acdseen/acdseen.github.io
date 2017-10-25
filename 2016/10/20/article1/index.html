@@ -40,7 +40,7 @@
 
 
 
-<link rel="canonical" href="http://acdseen.com/2017/10/24/hello-world/"/>
+<link rel="canonical" href="http://acdseen.com/2016/10/20/article1/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -189,7 +189,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          2017-10-24
+          2016-10-20
         </span>
         
           <div class="post-category">
@@ -200,7 +200,7 @@
         
         
         <div class="post-visits"
-             data-url="/2017/10/24/hello-world/"
+             data-url="/2016/10/20/article1/"
              data-title="我的第一篇blog">
             阅读次数
           </div>
@@ -246,14 +246,21 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-server --save</div></pre></td></tr></table></figure>
 <p>这样即可启动本地服务器了：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>在浏览器下输入<strong><a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></strong>,即可看到你的博客，在服务器启动期间，Hexo 会监视文件变动并自动更新，修改博客刷新页面即可看到变化。</p>
+<p>在浏览器下输入<strong><a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></strong>,即可看到你的博客，在服务器启动期间，Hexo 会监视文件变动并自动更新，修改博客刷新页面即可看到变化。<br><img src="/img/2.jpg" alt="Alt text"></p>
 <h3 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h3><p>在你的<a href="https://github.com/" target="_blank" rel="external">github</a>里创建一个Repository,</p>
 <p>建立与你用户名对应的仓库，仓库名必须为<strong>【your_user_name.github.io】</strong>，固定写法。<br>如果你之前用过github，并在你的电脑里生成了SSH KEY，那么可以直接看下面。<br>如果是第一次使用github，那么你要生成SSH秘钥：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">$ cd ~  #保证当前路径在”~”下</div><div class="line"></div><div class="line">$ ssh-keygen -t rsa -C &quot;xxxxxx@yy.com&quot;  #建议填写你申请github使用的邮箱地址</div><div class="line"></div><div class="line">Generating public/private rsa key pair.</div><div class="line"></div><div class="line">Enter file in which to save the key (/c/Users/xxxx_000/.ssh/id_rsa):   #不填直接回车</div><div class="line"></div><div class="line">Enter passphrase (empty for no passphrase):   #输入密码（可以为空）</div><div class="line"></div><div class="line">Enter same passphrase again:   #再次确认密码（可以为空）</div><div class="line"></div><div class="line">Your identification has been saved in /c/Users/xxxx_000/.ssh/id_rsa.   #生成的密钥</div><div class="line"></div><div class="line">Your public key has been saved in /c/Users/xxxx_000/.ssh/id_rsa.pub.  #生成的公钥</div><div class="line"></div><div class="line">The key fingerprint is:</div><div class="line"></div><div class="line">e3:51:33:xx:xx:xx:xx:xxx:61:28:83:e2:81 xxxxxx@yy.com</div></pre></td></tr></table></figure></p>
 <p>那么本机已完成ssh key设置，其存放路径为：c:/Users/xxxx_000/.ssh/下。</p>
 <p>添加ssh key到GItHub</p>
-<p>3.1 登录GitHub系统；点击右上角账号头像的“▼”→Settings→SSH kyes→Add SSH key。</p>
+<p>登录GitHub系统；点击右上角账号头像的“▼”→Settings→SSH kyes→Add SSH key。</p>
 <p><img src="/img/1.png" alt="Alt text"><br>使用记事本打开.ssh文件夹下的known_hosts文件，将里面的文本复制上去即可。</p>
-<h3 id="Hexo的部署"><a href="#Hexo的部署" class="headerlink" title="Hexo的部署"></a>Hexo的部署</h3>
+<h3 id="Hexo的部署"><a href="#Hexo的部署" class="headerlink" title="Hexo的部署"></a>Hexo的部署</h3><p>配置好github后，我们再来修改博客配置文件，打开根目录下的_config.yml，找到deploy，然后进行修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:yourName/yourName.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<p>注意，这里的repo可以使用git仓库地址，但在更换设备后，可能提交不了博客，所以我改成了这个地址。</p>
+<p>安装 hexo-deployer-heroku：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-heroku --save</div></pre></td></tr></table></figure></p>
+<p>最后提交你的博客：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo g //生成</div><div class="line">hexo d //部署</div></pre></td></tr></table></figure></p>
+<p>如果你对博客的更改无论如何也不生效，你需要运行该命令清除数据：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo clean</div></pre></td></tr></table></figure></p>
+<p>在这里博客就配置好了。</p>
+
       
     </div>
 
@@ -268,7 +275,7 @@
     </p>
     <p class="copyright-item">
       <span>原文链接: </span>
-      <a href="http://acdseen.com/2017/10/24/hello-world/">http://acdseen.com/2017/10/24/hello-world/</a>
+      <a href="http://acdseen.com/2016/10/20/article1/">http://acdseen.com/2016/10/20/article1/</a>
     </p>
     <p class="copyright-item">
       <span>许可协议: </span>
