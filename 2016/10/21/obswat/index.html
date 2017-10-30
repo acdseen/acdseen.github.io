@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="Departures -EGOIST"/>
+  <meta name="description" content="Vue的observer和watcher实现原理"/>
 
 
 
@@ -40,7 +40,7 @@
 
 
 
-<link rel="canonical" href="http://acdseen.com/2017/10/20/top/"/>
+<link rel="canonical" href="http://acdseen.com/2016/10/21/obswat/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -85,7 +85,7 @@
 
 
 
-    <title> Departures -EGOIST - Acdseen </title>
+    <title> Vue的observer和watcher实现原理 - Acdseen </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -183,25 +183,25 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          Departures -EGOIST
+          Vue的observer和watcher实现原理
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2017-10-20
+          2016-10-21
         </span>
         
           <div class="post-category">
             
-              <a href="/categories/音乐分享/">音乐分享</a>
+              <a href="/categories/javascript/">javascript</a>
             
           </div>
         
         
         <div class="post-visits"
-             data-url="/2017/10/20/top/"
-             data-title="Departures -EGOIST">
+             data-url="/2016/10/21/obswat/"
+             data-title="Vue的observer和watcher实现原理">
             阅读次数
           </div>
         
@@ -210,14 +210,19 @@
 
     
     
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现vue的-watch"><span class="toc-text">实现vue的$watch</span></a></li></ol>
+    </div>
+  </div>
+
 
     <div class="post-content">
       
-        <p>EGOIST是「罪恶王冠」中设定的拥有超高人气及超大影响力的的网络歌手，就是女主角啦。而实际上这位歌手则是由chelly担任演唱的角色。她淡雅清新的声音配上ryo清新的曲风，足以让我平静，就是那么好听啦。</p>
-<p><img src="/img/4.jpg" alt="Alt text"><br><a id="more"></a></p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=31649312&auto=0&height=66"></iframe>
-
-<p> <strong>怀中抱妹杀，徒手拆高达。</strong><br> <strong>诸位，拔剑吧！</strong></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前了解了一下Object.defineProperty();接下来就想理解一下vue的双向绑定原理。</p>
+<h2 id="实现vue的-watch"><a href="#实现vue的-watch" class="headerlink" title="实现vue的$watch"></a>实现vue的$watch</h2><p>先使用一下vue的$watch()方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">const app = new Vue(&#123;</div><div class="line">  	data:&#123;</div><div class="line">    	a:1</div><div class="line">  	&#125;</div><div class="line">&#125;)</div><div class="line">app.$watch(&quot;a&quot;,()=&gt;console.log(&quot;监听成功&quot;))</div><div class="line">app.a=&apos;hello&apos;;//打印 监听成功</div></pre></td></tr></table></figure></p>
+<p>接下来用原生js实现vue的$watch()方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">const vm = &#123; </div><div class="line">    _data: &#123;&#125;,// 用于存放data值</div><div class="line">    $data: &#123;&#125;,// 原始数据对象，当前值</div><div class="line">    callback: &#123;&#125; </div><div class="line">&#125;;</div><div class="line"></div><div class="line">vm.$watch = (obj, func) =&gt; &#123;</div><div class="line">    // 回调函数</div><div class="line">    vm.callback[ obj ] = func</div><div class="line">    // 设置data</div><div class="line">    Object.defineProperty(vm.$data, obj, &#123;</div><div class="line">        get() &#123;</div><div class="line">            //获取值时先将值存入vm._data[obj]</div><div class="line">            return vm._data[ obj ]</div><div class="line">        &#125;,</div><div class="line">        set(val) &#123;</div><div class="line">            // 比较原值，不相等则赋值</div><div class="line">            if (val != vm._data[ obj ]) &#123;</div><div class="line">                vm._data[ obj ] = val;</div><div class="line">                vm.callback[ obj ]();//执行回调</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line">vm.$watch(&apos;va&apos;, () =&gt; &#123;console.log(&apos;已经成功被监听啦&apos;)&#125;)</div><div class="line">vm.$data.va = 1</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -233,7 +238,7 @@
     </p>
     <p class="copyright-item">
       <span>原文链接: </span>
-      <a href="http://acdseen.com/2017/10/20/top/">http://acdseen.com/2017/10/20/top/</a>
+      <a href="http://acdseen.com/2016/10/21/obswat/">http://acdseen.com/2016/10/21/obswat/</a>
     </p>
     <p class="copyright-item">
       <span>许可协议: </span>
@@ -255,9 +260,15 @@
         
   <nav class="post-nav">
     
+      <a class="prev" href="/2016/10/21/defineProperty/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">解析Object.defineProperty</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
     
-      <a class="next" href="/2016/10/21/waterpolo/">
-        <span class="next-text nav-default">一个小小的水球动画</span>
+    
+      <a class="next" href="/2016/10/20/fistBlog/">
+        <span class="next-text nav-default">我的第一篇blog</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>

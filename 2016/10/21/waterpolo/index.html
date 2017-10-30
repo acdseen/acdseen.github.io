@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="一个小小的水球动画"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Acdseen">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://acdseen.com/2016/10/21/waterpolo/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+  <script id="leancloud">
+    AV.init({
+      appId: "GQLweBvcljfEcxu3eJKpri7q-gzGzoHsz",
+      appKey: "F94VF1Uyj0EwfST3HXtQXt2f"
+    });
+  </script>
+
+
+
+
+
+    <title> 一个小小的水球动画 - Acdseen </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Acdseen</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Acdseen</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          一个小小的水球动画
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-10-21
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/javascript/">javascript</a>
+            
+          </div>
+        
+        
+        <div class="post-visits"
+             data-url="/2016/10/21/waterpolo/"
+             data-title="一个小小的水球动画">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#样式预览"><span class="toc-text">样式预览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方法"><span class="toc-text">实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#画一段sin-函数"><span class="toc-text">画一段sin()函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#画一个圆容器"><span class="toc-text">画一个圆容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#让曲线动起来"><span class="toc-text">让曲线动起来</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#封装插件"><span class="toc-text">封装插件</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前段时间公司有个数据可视化的项目，要求就是动感炫酷，恰好我想到有个降雨量可以用球型加载的效果，于是便自己动手写了个<strong>水球插件</strong>，插件可以在我的<a href="https://github.com/acdseen/waterWaves" target="_blank" rel="external">github</a>上下载。</p>
+<h2 id="样式预览"><a href="#样式预览" class="headerlink" title="样式预览"></a>样式预览</h2><iframe height="280" scrolling="no" title="zPYmPY" src="//codepen.io/262/embed/zPYmPY/?height=265&theme-id=0&default-tab=js,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/262/pen/zPYmPY/" target="_blank" rel="external">zPYmPY</a> by acdseen  (<a href="https://codepen.io/262" target="_blank" rel="external">@262</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe>
+
+<a id="more"></a>
+<h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><p>当时看了echarts上的扩展水球，我想水波浪可以用正弦函数实现，通过移动正弦函数实现动态效果，有点像示波器里的电信号图表。</p>
+<h3 id="画一段sin-函数"><a href="#画一段sin-函数" class="headerlink" title="画一段sin()函数"></a>画一段sin()函数</h3><p>正弦函数的特性大家应该都知道，当函数为sin(x)时，值域为[-1, 1]，周期为2π。<br><img src="/img/6.jpg" alt="Alt text"><br>由上图可知，要在一段轴长内画正弦曲线，通过<strong>循环遍历</strong>，将函数的每个点串联为曲线。<br>接下来就开始写吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">var canvas=document.getElementById(&apos;myCanvas&apos;);</div><div class="line">var ctx=canvas.getContext(&apos;2d&apos;);		</div><div class="line">//确定Sin 曲线属性</div><div class="line">var sX = 0;</div><div class="line">var sY = canvas.height / 2;</div><div class="line">var axisLength = canvas.width; //轴长</div><div class="line">var waveWidth = 0.02 ;   //波浪宽度,数越小越宽    </div><div class="line">var waveHeight = 30; //波浪高度,数越大越高</div><div class="line"></div><div class="line">ctx.lineWidth = 1;//线宽</div><div class="line"></div><div class="line">//画sin 曲线函数</div><div class="line">var drawSin = function()&#123;</div><div class="line">    ctx.save();</div><div class="line"></div><div class="line">    var points=[];  //用于存放Sin曲线的坐标点</div><div class="line">    ctx.beginPath();</div><div class="line">    for(var x = sX; x &lt; sX + axisLength; x += 20 /axisLength)&#123;</div><div class="line">        var y = -Math.sin((sX + x) * waveWidth);</div><div class="line">        points.push([x, sY + y * waveHeight]);</div><div class="line">        ctx.lineTo(x, sY + y * waveHeight);     </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //封闭路径</div><div class="line">    ctx.lineTo(axisLength, canvas.height);//右下角终点</div><div class="line">    ctx.lineTo(sX, canvas.height);//左下角终点</div><div class="line">    ctx.lineTo(points[0][0],points[0][1]);//sin()曲线起始点</div><div class="line">    ctx.stroke()</div><div class="line">    ctx.restore();</div><div class="line">&#125;;</div><div class="line">drawSin()</div></pre></td></tr></table></figure></p>
+<p><img src="/img/5.jpg" alt="Alt text"><br>这样一段sin()曲线就画好了。</p>
+<h3 id="画一个圆容器"><a href="#画一个圆容器" class="headerlink" title="画一个圆容器"></a>画一个圆容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var r = canvas.height / 2; //圆心</div><div class="line">var cR = r - 16 * 1; //圆半径</div><div class="line"></div><div class="line">var drawCircle = function()</div><div class="line">    ctx.beginPath();</div><div class="line">    //这里的cR+8里的8是外圈和内圈的距离</div><div class="line">    ctx.arc(r, r, cR+8, 0, 2 * Math.PI);</div><div class="line">    ctx.stroke();</div><div class="line">    ctx.beginPath();</div><div class="line">    ctx.arc(r, r, cR, 0, 2 * Math.PI);</div><div class="line">    ctx.clip()</div><div class="line">&#125;;</div><div class="line">drawCircle();</div><div class="line">//为sin()曲线加一个填充颜色</div><div class="line">/*</div><div class="line">*修改drawSin()函数</div><div class="line">*ctx.fillStyle = &apos;#444&apos;;ctx.fill()</div><div class="line"> */</div></pre></td></tr></table></figure>
+<p><img src="/img/7.jpg" alt="Alt text"></p>
+<h3 id="让曲线动起来"><a href="#让曲线动起来" class="headerlink" title="让曲线动起来"></a>让曲线动起来</h3><p>原理是不断改变sin()函数的原点，重绘sin()曲线。<br>加入速度控制(函数x轴原点每次的偏移量)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var speed = 0.04; //波浪速度，数越大速度越快</div><div class="line">var xOffset = 0; //波浪x偏移量,在drawSin()函数里增加这个参数drawSin(xOffset),并修改</div><div class="line"> var y = -Math.sin((sX + x) * waveWidth+xOffset);</div><div class="line"></div><div class="line">var render = function()&#123;</div><div class="line">    ctx.clearRect(0, 0, mW, mH);</div><div class="line"></div><div class="line">    drawSin(xOffset);</div><div class="line">    xOffset += speed; //形成动态效果</div><div class="line">    window.requestAnimationFrame(render);</div><div class="line">&#125;;</div><div class="line">render()</div></pre></td></tr></table></figure></p>
+<p><img src="/img/7.gif" alt="Alt text"><br>这里有个window.requestAnimationFrame()API。这个方法告诉浏览器您希望执行动画并请求浏览器调用指定的函数在下一次重绘之前更新动画。具体详解大家可以看张鑫旭大神的<a href="http://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/" target="_blank" rel="external">CSS3动画那么强，requestAnimationFrame还有毛线用？</a></p>
+<p>这样我要的效果基本就实现了。</p>
+<h3 id="封装插件"><a href="#封装插件" class="headerlink" title="封装插件"></a>封装插件</h3><p>接下来我们便将这个效果封装为插件，便于多次使用。<br>创建闭包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">(function(window,factory)&#123;</div><div class="line">	if(typeof define === &quot;function&quot; &amp;&amp; define.amd)&#123;</div><div class="line">        //AMD</div><div class="line">        define(factory);</div><div class="line">    &#125;else if(typeof module === &quot;object&quot; &amp;&amp; module.exports)&#123;</div><div class="line">        //CMD</div><div class="line">        module.exports = factory();</div><div class="line">    &#125;else&#123;</div><div class="line">        //window</div><div class="line">        window.WaterPolo = factory();</div><div class="line">    &#125;</div><div class="line">&#125;(typeof window !== &quot;undefined&quot; ? window : this,function(selector,userOptions)&#123;	</div><div class="line">&#125;))</div></pre></td></tr></table></figure></p>
+<p>采用window作为参数传入，将功能函数挂载到window上。接下来写功能函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div></pre></td><td class="code"><pre><div class="line">var WaterPolo=function(selector,userOption</div><div class="line">    &apos;user strict&apos;;  </div><div class="line">    userOptions=userOptions||&#123;&#125;;</div><div class="line">    //基本参数设置</div><div class="line">    var options=&#123;</div><div class="line">        //容器距边缘的距离</div><div class="line">        wrapW:3,</div><div class="line">        //canvas属性</div><div class="line">        cW:300,</div><div class="line">        cH:300,</div><div class="line">        lineWidth : 2,</div><div class="line">        //液面位置 百分比表示</div><div class="line">        baseY: 20,</div><div class="line">        //页面起始位置</div><div class="line">        nowRange: 0,</div><div class="line">        //线条颜色</div><div class="line">        lineColor:&apos;rgb(176,204,53)&apos;,</div><div class="line">        //上层颜色</div><div class="line">        oneColor:&apos;rgba(176,204,53,.6)&apos;,</div><div class="line">        //下层颜色</div><div class="line">        twoColor:&apos;rgba(176,204,53,.4)&apos;,</div><div class="line">        //上层波浪宽度，数越小越宽</div><div class="line">        oneWaveWidth:0.06,</div><div class="line">        //下层波浪宽度</div><div class="line">        twoWaveWidth:0.06,</div><div class="line">        //上层波浪高度，数越大越高</div><div class="line">        oneWaveHeight:4,</div><div class="line">        //下层波浪高度</div><div class="line">        twoWaveHeight:4,</div><div class="line">        //上层波浪x轴偏移量</div><div class="line">        oneOffsetX:10,</div><div class="line">        //下层波浪x轴偏移量</div><div class="line">        twoOffsetX:20,</div><div class="line">        //波浪滚动速度，数越大越快</div><div class="line">        speed:0.2</div><div class="line">    &#125;;     </div><div class="line">    var canvas = null,</div><div class="line">        ctx = null,</div><div class="line">        W = null,</div><div class="line">        H = null;</div><div class="line">    //监听对象属性变化</div><div class="line">    Object.defineProperty(this, &apos;options&apos;, &#123;  </div><div class="line">            get: function() &#123;  </div><div class="line">                return options;  </div><div class="line">            &#125;,  </div><div class="line">            set: function(value) &#123; </div><div class="line">                </div><div class="line">                mergeOption(value,options);</div><div class="line">            &#125;  </div><div class="line">    &#125;); </div><div class="line">     </div><div class="line">    //参数混合相当于$.extend([old],[new])</div><div class="line">    var mergeOption=function(userOptions,options)&#123;</div><div class="line">        Object.keys(userOptions).forEach(function(key)&#123;</div><div class="line">            options[key]=userOptions[key];</div><div class="line">        &#125;)</div><div class="line">   </div><div class="line">    //生成液面</div><div class="line">    var makeLiquaid=function(ctx,xOffset,waveWidth,waveHeight,color)&#123;</div><div class="line">        ctx.save();</div><div class="line">        var points = [];//用于存放绘制Sin曲线的点</div><div class="line">        ctx.beginPath();</div><div class="line">        //在x轴上取点</div><div class="line">        for (var x = 0; x &lt; options.cW; x += 20 / options.cW) &#123;</div><div class="line">            //此处坐标(x,y)的取点，依靠公式 “振幅高*sin(x*振幅宽 + 振幅偏移量)”</div><div class="line">            var y = -Math.sin(x * waveWidth + xOffse</div><div class="line">            //液面高度百分比改变</div><div class="line">            var dY = options.cH * (1 - options.nowRange / 10</div><div class="line">            points.push([x, dY + y * waveHeight]);</div><div class="line">            ctx.lineTo(x, dY + y * waveHeight);</div><div class="line">        &#125;</div><div class="line">        //封闭路径</div><div class="line">        ctx.lineTo(options.cW, options.cH);</div><div class="line">        ctx.lineTo(0, options.cH);</div><div class="line">        ctx.lineTo(points[0][0], points[0][1]);</div><div class="line">        ctx.fillStyle = color;</div><div class="line">        ctx.fill();</div><div class="line">        ctx.restore();</div><div class="line">   </div><div class="line">    //初始</div><div class="line">    var init=function()&#123;</div><div class="line">        </div><div class="line">        mergeOption(userOptions,option</div><div class="line">        canvas=document.getElementById(selector);</div><div class="line">        ctx=canvas.getContext(&apos;2d</div><div class="line">        canvas.width=options.cW;</div><div class="line">        canvas.height=options.</div><div class="line">        ctx.lineWidth=options.lineWid</div><div class="line">        //圆属性</div><div class="line">        var r = options.cH / 2; //圆心</div><div class="line">        var cR = r - 6; //圆半径 决定圆的大小</div><div class="line">        </div><div class="line">        var drawCircle = function(ctx)&#123;</div><div class="line">            ctx.beginPath();</div><div class="line">            ctx.strokeStyle = options.lineColor;</div><div class="line">            ctx.arc(r, r, cR+options.wrapW, 0, 2 * Math.PI);</div><div class="line">            ctx.stroke();</div><div class="line">            ctx.beginPath();</div><div class="line">            ctx.arc(r, r, cR, 0, 2 * Math.PI);</div><div class="line">            ctx.clip</div><div class="line">        &#125;;</div><div class="line">        drawCircle(ctx);/</div><div class="line">        (function drawFrame</div><div class="line">            window.requestAnimationFrame(drawFram</div><div class="line">            ctx.clearRect(0, 0, options.cW, options.cH);</div><div class="line">            </div><div class="line">            //高度改变动</div><div class="line">            if (options.nowRange &lt;= options.baseY) &#123;</div><div class="line">                var tmp = 1;</div><div class="line">                options.nowRange += tmp;</div><div class="line">          </div><div class="line">            if (options.nowRange &gt; options.baseY) &#123;</div><div class="line">                var tmp = 1;</div><div class="line">                options.nowRange -= tmp;</div><div class="line">            &#125;</div><div class="line">            makeLiquctx,options.oneOffsetX,options.oneWaveWidth,options.oneWaveHeight,options.oneColor);</div><div class="line">            makeLiquctx,options.twoOffsetX,options.twoWaveWidth,options.twoWaveHeight,options.twoColo</div><div class="line">            options.oneOffsetX+=options.speed;</div><div class="line">            options.twoOffsetX+=options.spe</div><div class="line">        &#125;());           </div><div class="line">    &#125;;</div><div class="line">    init();       </div><div class="line">&#125;;</div><div class="line">return WaterPolo;</div></pre></td></tr></table></figure></p>
+<p>使用插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> //var a=new WaterPolo(&apos;canvas&apos;);</div><div class="line"> //你对默认属性不喜欢的，也可以传入一些新属性</div><div class="line">var newOptions=&#123;</div><div class="line">    cW:130,</div><div class="line">    cH:130,</div><div class="line">    baseY:50,</div><div class="line">    nowRange:0</div><div class="line">&#125;;</div><div class="line">var a=new WaterPolo(&apos;canvas&apos;,newOptions);</div><div class="line">//更新属性</div><div class="line">newOptions.baseY=40;</div><div class="line">a.options=newOptions;</div></pre></td></tr></table></figure></p>
+<p>封装插件时用到了ES5的Object.defineProperty()这个方法，这个也是vue.js关于视图和数据动态变化的原理，所以理解Object.defineProperty()是必须的，在我的<a href="../defineProperty">解析Object.defineProperty</a>有些讲解。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://acdseen.com">Acdseen</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://acdseen.com/2016/10/21/waterpolo/">http://acdseen.com/2016/10/21/waterpolo/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/10/20/top/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Departures -EGOIST</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/10/21/defineProperty/">
+        <span class="next-text nav-default">解析Object.defineProperty</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:zhonglinhong107@gmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/acdseen" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+        
+          <a href="http://weibo.com/u/3271829824" class="iconfont icon-weibo" title="weibo"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Acdseen</span>
+</span>
+</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>
