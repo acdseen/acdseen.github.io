@@ -222,6 +222,7 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前了解了一下Object.defineProperty();接下来就想理解一下vue的双向绑定原理。</p>
 <h2 id="实现vue的-watch"><a href="#实现vue的-watch" class="headerlink" title="实现vue的$watch"></a>实现vue的$watch</h2><p>先使用一下vue的$watch()方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">const app = new Vue(&#123;</div><div class="line">  	data:&#123;</div><div class="line">    	a:1</div><div class="line">  	&#125;</div><div class="line">&#125;)</div><div class="line">app.$watch(&quot;a&quot;,()=&gt;console.log(&quot;监听成功&quot;))</div><div class="line">app.a=&apos;hello&apos;;//打印 监听成功</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>接下来用原生js实现vue的$watch()方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">const vm = &#123; </div><div class="line">    _data: &#123;&#125;,// 用于存放data值</div><div class="line">    $data: &#123;&#125;,// 原始数据对象，当前值</div><div class="line">    callback: &#123;&#125; </div><div class="line">&#125;;</div><div class="line"></div><div class="line">vm.$watch = (obj, func) =&gt; &#123;</div><div class="line">    // 回调函数</div><div class="line">    vm.callback[ obj ] = func</div><div class="line">    // 设置data</div><div class="line">    Object.defineProperty(vm.$data, obj, &#123;</div><div class="line">        get() &#123;</div><div class="line">            //获取值时先将值存入vm._data[obj]</div><div class="line">            return vm._data[ obj ]</div><div class="line">        &#125;,</div><div class="line">        set(val) &#123;</div><div class="line">            // 比较原值，不相等则赋值</div><div class="line">            if (val != vm._data[ obj ]) &#123;</div><div class="line">                vm._data[ obj ] = val;</div><div class="line">                vm.callback[ obj ]();//执行回调</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line">vm.$watch(&apos;va&apos;, () =&gt; &#123;console.log(&apos;已经成功被监听啦&apos;)&#125;)</div><div class="line">vm.$data.va = 1</div></pre></td></tr></table></figure></p>
 
       
@@ -267,8 +268,8 @@
       </a>
     
     
-      <a class="next" href="/2016/10/20/fistBlog/">
-        <span class="next-text nav-default">我的第一篇blog</span>
+      <a class="next" href="/2016/10/21/waterpolo/">
+        <span class="next-text nav-default">一个小小的水球动画</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
